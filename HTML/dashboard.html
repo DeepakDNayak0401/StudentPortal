@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Portal - Dashboard</title>
+
+    <!-- ------------favicon------------------ -->
+    <link rel="icon" href="../Images/favicon.jpg" type="image/png" />
+
+    <!-- font awesome icons -->
+    <link type="text/css" rel="stylesheet" href="..\CSS\all.min.css" />
+
+    <!-- custom css file -->
+    <link type="text/css" rel="stylesheet" href="..\CSS\dashboardStyle.css" />
+  </head>
+  <body>
+    <div id="studentInfo"></div>
+    <div class="container" role="main">
+      <!-- Main role for main content -->
+      <!-- ==========================aside section start========================== -->
+      <aside>
+        <div class="top">
+          <div class="logo">
+            <h2 class="danger" aria-label="Edusphere">Edusphere</h2>
+          </div>
+          <div class="button_hide">
+            <button class="close" id="close" aria-label="Close menu">
+              <span><i class="fa-solid fa-xmark"></i></span>
+            </button>
+          </div>
+        </div>
+        <!-----------------end top----------------->
+
+        <nav class="sidebar" aria-label="Main navigation">
+          <!-- Navigation label for screen readers -->
+          <a
+            href="dashboard.html"
+            aria-current="page"
+            class="active"
+            aria-label="Dashboard"
+          >
+            <span><i class="fa-solid fa-border-all"></i></span>
+            <h3>Dashboard</h3>
+          </a>
+          <a href="#" onclick="showProfile()" aria-label="View Profile">
+            <span><i class="fa-solid fa-user"></i></span>
+            <h3>Profile</h3>
+          </a>
+          <a href="#" onclick="showCourseSection()" aria-label="View Courses">
+            <span><i class="fa-solid fa-bookmark"></i></span>
+            <h3>Courses</h3>
+          </a>
+          <a href="#" aria-label="View Notifications">
+            <span><i class="fa-solid fa-bell"></i></span>
+            <h3>Notifications</h3>
+            <span class="notification-count" aria-live="polite">4</span>
+            <!-- Live region for notification count -->
+          </a>
+          <a href="events.html" aria-label="View Events">
+            <span><i class="fa-solid fa-calendar"></i></span>
+            <h3>Events</h3>
+          </a>
+          <a href="clubs.html" aria-label="View Clubs/Committees">
+            <span><i class="fa-solid fa-calendar"></i></span>
+            <h3>Club/Committee</h3>
+          </a>
+          <a href="#" aria-label="View Settings">
+            <span><i class="fa-solid fa-gear"></i></span>
+            <h3>Settings</h3>
+          </a>
+          <a href="#" aria-label="Logout" class="logout">
+            <span><i class="fa-solid fa-right-from-bracket"></i></span>
+            <h3>Logout</h3>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- ==========================aside section end========================== -->
+
+      <!-- ==========================Main section start========================== -->
+      <main>
+        <div class="maindashboard">
+          <h1>Dashboard</h1>
+
+          <!-- Insight Start -->
+          <div class="insights">
+            <!-- -----------------Attendance Start-------------------- -->
+            <div class="attendance" aria-label="Overall Attendance">
+              <span><i class="fa-solid fa-clipboard-user"></i></span>
+              <div class="middle">
+                <div class="left">
+                  <h3>Overall Attendance</h3>
+                  <h1>92%</h1>
+                </div>
+                <div class="progress">
+                  <svg aria-label="Attendance progress">
+                    <circle r="30" cy="40" cx="40"></circle>
+                  </svg>
+                  <div class="number">92%</div>
+                </div>
+              </div>
+              <p>Attendance includes lectures, labs, and tutorials.</p>
+            </div>
+            <!-- -----------------Attendance end-------------------- -->
+
+            <!-- -----------------Last Theory Exam Marks start-------------------- -->
+            <div class="theory-marks" aria-label="Total Theory Exam Marks">
+              <span><i class="fa-solid fa-book"></i></span>
+              <div class="middle">
+                <div class="left">
+                  <h3>Total Theory Exam Marks</h3>
+                  <h1>85</h1>
+                </div>
+                <div class="progress">
+                  <svg aria-label="Theory exam marks progress">
+                    <circle r="30" cy="40" cx="40"></circle>
+                  </svg>
+                  <div class="number">85%</div>
+                </div>
+              </div>
+              <p>Performance based on latest semester exams.</p>
+            </div>
+            <!-- -----------------Last Theory Exam end-------------------- -->
+
+            <!-- -----------------Last Lab Exam Marks start------------------ -->
+            <div class="lab-marks" aria-label="Total Lab Exam Marks">
+              <span><i class="fa-solid fa-tv"></i></span>
+              <div class="middle">
+                <div class="left">
+                  <h3>Total Lab Exam Marks</h3>
+                  <h1>90</h1>
+                </div>
+                <div class="progress">
+                  <svg aria-label="Lab exam marks progress">
+                    <circle r="30" cy="40" cx="40"></circle>
+                  </svg>
+                  <div class="number">90%</div>
+                </div>
+              </div>
+              <p>Includes performance in practical labs.</p>
+            </div>
+            <!-- -----------------Last Lab Exam end-------------------- -->
+          </div>
+          <!-- Insight End -->
+
+          <!-- ---------------------Last Month Attendance start------------------------------- -->
+          <div
+            class="last-30-days-attendance"
+            aria-label="Attendance records for the last month"
+          >
+            <h1>View Your Attendance</h1>
+
+            <div
+              class="filter text-center"
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+              "
+            >
+              <label
+                for="from-date"
+                style="margin: 0 10px; font-size: 1.2rem"
+                aria-label="Select start date"
+                >From</label
+              >
+              <input
+                type="date"
+                id="from-date"
+                aria-label="Select start date"
+                style="
+                  padding: 10px;
+                  font-size: 1rem;
+                  border: 1px solid #ccc;
+                  border-radius: 4px;
+                  margin-right: 20px;
+                "
+              />
+
+              <label
+                for="to-date"
+                style="margin: 0 10px; font-size: 1.2rem"
+                aria-label="Select end date"
+                >To</label
+              >
+              <input
+                type="date"
+                id="to-date"
+                aria-label="Select end date"
+                style="
+                  padding: 10px;
+                  font-size: 1rem;
+                  border: 1px solid #ccc;
+                  border-radius: 4px;
+                "
+              />
+            </div>
+
+            <table class="attendance-table" role="table">
+              <thead>
+                <tr role="row">
+                  <th role="columnheader">Subject Name</th>
+                  <th role="columnheader">Total Classes</th>
+                  <th role="columnheader">Classes Attended</th>
+                  <th role="columnheader">Percentage</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr role="row">
+                  <td role="cell">Mathematics</td>
+                  <td role="cell">30</td>
+                  <td role="cell">28</td>
+                  <td role="cell">93%</td>
+                </tr>
+                <tr role="row">
+                  <td role="cell">Physics</td>
+                  <td role="cell">30</td>
+                  <td role="cell">25</td>
+                  <td role="cell">83%</td>
+                </tr>
+                <tr role="row">
+                  <td role="cell">Chemistry</td>
+                  <td role="cell">30</td>
+                  <td role="cell">27</td>
+                  <td role="cell">90%</td>
+                </tr>
+                <tr role="row">
+                  <td role="cell">Biology</td>
+                  <td role="cell">30</td>
+                  <td role="cell">26</td>
+                  <td role="cell">87%</td>
+                </tr>
+                <tr role="row">
+                  <td role="cell">Computer Science</td>
+                  <td role="cell">30</td>
+                  <td role="cell">29</td>
+                  <td role="cell">97%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- ---------------------Last Month Attendance end------------------------------- -->
+
+        <!-- ==========================Course section start========================== -->
+        <div
+          class="course-section"
+          style="display: none"
+          aria-label="Course selection"
+        >
+          <h1>Courses</h1>
+          <div class="dropdowns">
+            <label for="semester" aria-label="Select Semester"
+              >Select Semester:</label
+            >
+            <select
+              id="semester"
+              onchange="updateSubjects()"
+              aria-label="Select semester"
+            >
+              <option value="">Select Semester</option>
+              <option value="1">Semester 1</option>
+              <option value="2">Semester 2</option>
+              <!-- Add more semesters as needed -->
+            </select>
+
+            <label for="subject" aria-label="Select Subject"
+              >Select Subject:</label
+            >
+            <select
+              id="subject"
+              onchange="displayModules()"
+              disabled
+              aria-label="Select subject"
+            >
+              <option value="">Select Subject</option>
+              <!-- Subjects will be populated based on semester selection -->
+            </select>
+          </div>
+
+          <div class="modules" id="modules" style="display: none">
+            <h2>Modules/PDFs</h2>
+            <table id="module-table">
+              <thead>
+                <tr>
+                  <th>Sl. No.</th>
+                  <th>Name of the Module</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="module-list"></tbody>
+            </table>
+          </div>
+        </div>
+        <!-- ==========================Course section end========================== -->
+
+        <!-- =====================profile section start================================ -->
+        <div id="profile-section" aria-label="Student Profile">
+          <div class="student-profile">
+            <h2 class="student-name">
+              Name: <span id="student-name">John Doe</span>
+            </h2>
+            <p class="student-email">
+              Email: <span id="student-email">john.doe@example.com</span>
+            </p>
+            <p class="student-reg-number">
+              Registration Number: <span id="student-reg-number">123456</span>
+            </p>
+            <p class="student-course">
+              Course Enrolled: <span id="student-course">Computer Science</span>
+            </p>
+            <p class="student-section">
+              Section: <span id="student-section">A</span>
+            </p>
+          </div>
+        </div>
+        <!-- =====================profile section end================================ -->
+      </main>
+      <!-- ==========================Main section end========================== -->
+
+      <!-- ==========================Right section start========================== -->
+      <div class="right-section">
+        <div class="top">
+          <button id="menu-bar" aria-label="Open menu">
+            <span><i class="fa-solid fa-bars"></i></span>
+          </button>
+
+          <div class="theme-toggler" aria-label="Toggle theme">
+            <span class="active" aria-label="Light mode"
+              ><i class="fa-solid fa-sun"></i
+            ></span>
+            <span aria-label="Dark mode"><i class="fa-solid fa-moon"></i></span>
+          </div>
+
+          <div class="profile" aria-label="User Profile">
+            <div class="info">
+              <p><b>default</b></p>
+              <p>Student</p>
+            </div>
+            <div class="profile-picture">
+              <img
+                src=""
+                alt="Profile picture of Pandu"
+                id="profile-image"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- --------------end top section---------------------- -->
+
+        <!-- ------------------start latest updates start--------------------------- -->
+        <div class="recent-updates" aria-label="Recent Updates">
+          <h2 class="text-center">Latest Updates</h2>
+
+          <!-- -----update 1--------- -->
+          <div class="updates" aria-label="Update from Dr. Smith">
+            <div class="profile-picture">
+              <img
+                src="../Images/profile-picture.jpg"
+                alt="Profile picture of Dr. Smith"
+              />
+            </div>
+            <div class="message">
+              <p>
+                <b>Dr. Smith</b> Assignment deadline extended to next Monday.
+              </p>
+            </div>
+          </div>
+          <!-- -----update 1--------- -->
+
+          <!-- -----update 2--------- -->
+          <div class="updates" aria-label="Update from Prof. Johnson">
+            <div class="profile-picture">
+              <img
+                src="../Images/faculty-1.jpg"
+                alt="Profile picture of Prof. Johnson"
+              />
+            </div>
+            <div class="message">
+              <p><b>Prof. Johnson</b> Reminder: Lab reports due this Friday.</p>
+            </div>
+          </div>
+          <!-- -----update 2--------- -->
+
+          <!-- -----update 3--------- -->
+          <div class="updates" aria-label="Update from Student Council">
+            <div class="profile-picture">
+              <img
+                src="../Images/news_coding.jpg"
+                alt="Profile picture of Student Council"
+              />
+            </div>
+            <div class="message">
+              <p>
+                <b>Student Council</b> Join us for the annual picnic this
+                Saturday!
+              </p>
+            </div>
+          </div>
+          <!-- -----update 3--------- -->
+
+          <div class="text-center">
+            <span><a href="#">Load More</a></span>
+          </div>
+        </div>
+        <!-- ------------------start latest updates end--------------------------- -->
+
+        <!-- ------------------------Latest Tech News section-------------------------- -->
+        <div class="extras" aria-label="Latest Tech News">
+          <h2 class="text-center">What's Happening!</h2>
+          <div class="news-container">
+            <!-- ---------------------news one------------------------- -->
+            <div class="news" aria-label="News about AI tools">
+              <div class="new-image">
+                <img
+                  src="../Images/new_AI.jpg"
+                  alt="AI tools in Computer Science curriculum"
+                />
+              </div>
+              <div class="news-content">
+                <p>
+                  New AI tools being introduced in the Computer Science
+                  curriculum. <a href="#">read more</a>
+                </p>
+              </div>
+            </div>
+            <!-- ---------------------news one------------------------- -->
+
+            <!-- ---------------------news two------------------------- -->
+            <div class="news" aria-label="Workshop on Data Science">
+              <div class="new-image">
+                <img
+                  src="../Images/news_data_science.jpg"
+                  alt="Data Science Workshop"
+                />
+              </div>
+              <div class="news-content">
+                <p>
+                  Workshop on Data Science scheduled for next week.
+                  <a href="#">read more</a>
+                </p>
+              </div>
+            </div>
+            <!-- ---------------------news two------------------------- -->
+
+            <!-- ---------------------news three------------------------- -->
+            <div class="news" aria-label="Guest lecture on Cybersecurity">
+              <div class="new-image">
+                <img
+                  src="../Images/news_cyber_security.jpg"
+                  alt="Cybersecurity Guest Lecture"
+                />
+              </div>
+              <div class="news-content">
+                <p>
+                  Guest lecture by industry expert on Cybersecurity.
+                  <a href="#">read more</a>
+                </p>
+              </div>
+            </div>
+            <!-- ---------------------news three------------------------- -->
+
+            <!-- ---------------------news four------------------------- -->
+            <div class="news" aria-label="Coding competition announcement">
+              <div class="new-image">
+                <img src="../Images/news_coding.jpg" alt="Coding Competition" />
+              </div>
+              <div class="news-content">
+                <p>
+                  Join the coding competition and win exciting prizes!
+                  <a href="#">read more</a>
+                </p>
+              </div>
+            </div>
+            <!-- ---------------------news four------------------------- -->
+          </div>
+          <div class="text-center">
+            <span><a href="#">Load More</a></span>
+          </div>
+        </div>
+        <!-- ------------------------Latest Tech News section-------------------------- -->
+      </div>
+      <!-- ==========================Right section end========================== -->
+    </div>
+
+    <!-- swiper js file -->
+    <script src="..\JS\swiper.js"></script>
+
+    <!-- external js file -->
+    <script src="..\JS\script.js"></script>
+  </body>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector("#profile-section").style.display = "none";
+    });
+  </script>
+
+  <script>
+    // Function to get a specific cookie by name
+    function getCookie(name) {
+      const nameEQ = name + "=";
+      const ca = document.cookie.split(";");
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === " ") c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0)
+          return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+    // Function to check if user is logged in (i.e., cookies exist)
+    function checkLogin() {
+      const name = getCookie("name");
+      const email = getCookie("email");
+
+      // If either the 'name' or 'email' cookie is null, redirect to login page
+      if (!name || !email) {
+        window.location.href = "../HTML/student-login.html";
+      }
+    }
+
+    // Call checkLogin() on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      checkLogin(); // Ensure the user is logged in
+    
+      // Display the student info if logged in
+      const name = getCookie("name");
+      const email = getCookie("email");
+      const regno = getCookie("regno");
+      const course = getCookie("course");
+      const section = getCookie("section");
+      const imagePath = getCookie("image"); // Get image path from cookie
+    
+      if (name && email) {
+        document.getElementById('student-name').innerText = name;
+        document.getElementById('student-email').innerText = email;
+        document.getElementById('student-reg-number').innerText = regno;
+        document.getElementById('student-course').innerText = course;
+        document.getElementById('student-section').innerText = section;
+      }
+    
+      const profileNameElement = document.querySelector(".profile .info p b");
+      if (profileNameElement) {
+        profileNameElement.textContent = name;
+      }
+    
+      // Update the profile image if image path exists in cookie
+      if (imagePath) {
+        const formattedImagePath = formatImagePath(imagePath);
+        const profileImage = document.getElementById('profile-image');
+        if (profileImage) {
+          profileImage.src = formattedImagePath;
+        }
+      }
+    });
+
+    // Function to format the image path from cookie
+    function formatImagePath(imagePath) {
+      console.log("Original image path from cookie:", imagePath); // Log original image path
+    
+      // Regex to extract the file name from the image path
+      const regex = /.*[\\\/](Images[\\\/].+)/;
+      const match = imagePath.match(regex);
+    
+      console.log("Regex match result:", match); // Log the result of the regex match
+    
+      if (match && match[1]) {
+        // Replace backslashes with forward slashes and format the path
+        const formattedPath = "../" + match[1].replace(/\\/g, "/");
+        console.log("Formatted image path:", formattedPath); // Log the formatted image path
+        return formattedPath;
+      }
+    
+      // Return default image if the path is invalid
+      console.log("Invalid path, using default image."); // Log when default image is being used
+      return "../Images/profile-picture.jpg";
+    }
+
+    // Function to set all cookies to null (for logout)
+    function logoutAndSetCookiesToNull() {
+      const cookies = document.cookie.split(";");
+
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i];
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie =
+          name + "=null; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+      }
+
+      // Redirect to login page
+      window.location.href = "../HTML/student-login.html";
+    }
+
+    // Attach the logout functionality
+    document
+      .querySelector(".logout")
+      .addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent the default link behavior
+        logoutAndSetCookiesToNull(); // Set all cookie values to null and redirect
+      });
+  </script>
+</html>

@@ -1,0 +1,26 @@
+
+/* CSS variables */
+
+:root {
+	--navbar-brand-color: wheat;
+	--nav-background-color: #6c757d;
+	--background-dark: #000;
+	--navigation-color: rgb(108, 117, 125);
+	--nav-item: #fff;
+	--card-color: #fff;
+	--footer-background: #3887f5;
+	--primary-color: #000000;
+	--primary-color2: #5c5d64;
+	--secondary-color: #797c78;
+	--title-color: #141313;
+	--accent-color: #29af0e;
+	--background-color: #F8F9FA;
+	--text-color: #e60f0f;
+	--border-color: #201f1f17;
+	--gradient-color: linear-gradient(90deg, #4458dc 0%, #4f5cee 100%);
+	--shadow-color: 0px 10px 30px rgba(118, 85, 225, 0.3);
+	--box-shadow-color: 0px 10px 30px rgba(57, 56, 61, 0.205);
+
+	/* font-family variables	*/
+	--roboto: "Roboto", cursive;
+  }

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>EduSphere</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <!-- ------------favicon------------------ -->
+    <link rel="icon" href="../Images/favicon.jpg" type="image/png">
+
+    <!-- Bootstrap CSS -->
+    <link type="text/css" rel="stylesheet" href="../CSS/bootstrap.min.css">
+
+    <!-- Font Awesome icons -->
+    <link type="text/css" rel="stylesheet" href="../CSS/all.min.css">
+
+    <!-- Custom CSS -->
+    <link type="text/css" rel="stylesheet" href="../CSS/style.css">
+    <link type="text/css" rel="stylesheet" href="../CSS/events.css">
+  
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">EduSphere</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="myButton">Go Back to Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Upcoming Events Carousel -->
+    <div id="upcomingEventsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../Images/cultural.jpg" class="d-block w-100" alt="Annual Tech Fest">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Annual Tech Fest</h5>
+                    <p>Date: March 20, 2024</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../Images/cultural.jpg" class="d-block w-100" alt="Sports Day">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Sports Day</h5>
+                    <p>Date: April 15, 2024</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://i.ytimg.com/vi/PHyhDCSixwo/maxresdefault.jpg" class="d-block w-100" alt="Art Exhibition">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Art Exhibition</h5>
+                    <p>Date: May 10, 2024</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev carousel-button" type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next carousel-button" type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Event Cards -->
+    <div class="container">
+        <div class="event-row" id="eventRow">
+            
+        </div>
+    </div>
+
+    <!-- Modal for Event Details -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="eventTitle"></h2>
+            <p id="eventDescription"></p>
+            <h3>Rules:</h3>
+            <pre id="eventRules"></pre>
+            <input type="text" id="teamName" placeholder="Team Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <button onclick="register()">Register</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 EduSphere. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../JS/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Format image path function
+        function formatImagePath(imagePath) {
+            console.log("Original image path from cookie:", imagePath); // Log original image path
+        
+            // Regex to extract the file name from the image path
+            const regex = /.*[\\\/](Images[\\\/].+)/;
+            const match = imagePath.match(regex);
+        
+            console.log("Regex match result:", match); // Log the result of the regex match
+        
+            if (match && match[1]) {
+                // Replace backslashes with forward slashes and format the path
+                const formattedPath = "../" + match[1].replace(/\\/g, "/");
+                console.log("Formatted image path:", formattedPath); // Log the formatted image path
+                return formattedPath;
+            }
+        
+            // Return default image if the path is invalid
+            console.log("Invalid path, using default image."); // Log when default image is being used
+            return "../Images/profile-picture.jpg";
+        }
+
+        // Fetch the JSON data and dynamically add event cards
+        function loadEventData() {
+            fetch('http://localhost:5500/json/event.json')
+                .then(response => response.json())
+                .then(data => {
+                    const eventRow = document.getElementById('eventRow');
+
+                    data.forEach(event => {
+                        // Create a new event card element
+                        const eventCard = document.createElement('div');
+                        eventCard.classList.add('event-card');
+
+                        // Format the image path
+                        const formattedImage = formatImagePath(event.image);
+
+                        // Add inner HTML to the card
+                        eventCard.innerHTML = `
+                            <img src="${formattedImage}" alt="${event.name}">
+                            <h2>${event.name}</h2>
+                            <p>Date: ${new Date(event.from).toLocaleDateString()}</p>
+                            <p>Location: ${event.venue}</p>
+                            <button onclick="showDetails('${event.name}', 'Join us for ${event.name} happening at ${event.venue}.', 'Rules:<ul><li>Please bring a valid ID card.</li><li>Arrive 30 minutes early for registration.</li><li>Ensure you follow all event guidelines.</li></ul>')">View More</button>
+                        `;
+
+                        // Append the new event card to the event row
+                        eventRow.appendChild(eventCard);
+                    });
+                })
+                .catch(error => console.error('Error fetching event data:', error));
+        }
+
+        // Show details in modal
+        function showDetails(title, description, rules) {
+            document.getElementById('eventTitle').innerText = title;
+            document.getElementById('eventDescription').innerText = description;
+            document.getElementById('eventRules').innerHTML = rules; // Changed to innerHTML
+            document.getElementById('eventModal').style.display = 'block';
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('eventModal').style.display = 'none';
+            document.getElementById('teamName').value = '';
+            document.getElementById('email').value = '';
+        }
+
+        // Registration function
+        function register() {
+            const teamName = document.getElementById('teamName').value;
+            const email = document.getElementById('email').value;
+
+            if (!teamName || !email) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            alert('Thank you for registering!');
+            closeModal();
+        }
+
+        // Load event data when the page loads
+        window.onload = loadEventData;
+    </script>
+</body>
+</html>

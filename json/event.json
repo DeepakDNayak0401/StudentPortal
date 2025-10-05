@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Annual Tech Fest",
+        "venue": "Main Auditorium",
+        "from": "2024-03-20",
+        "to": "2024-10-17",
+        "time": "13:37",
+        "image": "C:\/Users\/amans\/Desktop\/StudentPortal 4\/StudentPortal\/Images\/event\/techtatva.jpeg.jpg"
+    },
+    {
+        "name": "Sports Day",
+        "venue": "College Grounds",
+        "from": "2024-10-18",
+        "to": "2024-10-27",
+        "time": "19:35",
+        "image": "C:\/Users\/amans\/Desktop\/StudentPortal 4\/StudentPortal\/Images\/event\/images.jpg"
+    },
+    {
+        "name": "Art Exhibition",
+        "venue": "Art Gallery",
+        "from": "2024-10-18",
+        "to": "2024-10-11",
+        "time": "13:57",
+        "image": "C:\/Users\/amans\/Desktop\/StudentPortal 4\/StudentPortal\/Images\/event\/istockphoto-636761588-612x612.jpg"
+    },
+    {
+        "name": "Cultural Fest",
+        "venue": "College Grounds",
+        "from": "2024-10-19",
+        "to": "2024-10-20",
+        "time": "13:58",
+        "image": "C:\/Users\/amans\/Desktop\/StudentPortal 4\/StudentPortal\/Images\/event\/cultural1.jpg"
+    },
+    {
+        "name": "hackathon",
+        "venue": "ab3",
+        "from": "2024-10-12",
+        "to": "2024-10-19",
+        "time": "09:46",
+        "image": "C:\/Users\/amans\/Desktop\/StudentPortal 4\/StudentPortal\/Images\/event\/svgviewer-png-output (2).png"
+    }
+]

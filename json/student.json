@@ -1,0 +1,47 @@
+[
+    {
+        "name": "aman",
+        "email": "aman@gmail.com",
+        "regno": "123123",
+        "password": "123123",
+        "course": "mca",
+        "section": "c",
+        "image": "C:\/Users\/amans\/Desktop\/StudentPortal 4\/StudentPortal\/Images\/student\/woman.png"
+    },
+    {
+        "name": "rahul",
+        "email": "rahul@gmail.com",
+        "regno": "rahul123",
+        "password": "Ou(%t)I8",
+        "course": "mca",
+        "section": "c",
+        "image": "C:\/Users\/amans\/Desktop\/StudentPortal 4\/StudentPortal\/Images\/student\/passport size.jpg"
+    },
+    {
+        "name": "yrr",
+        "email": "ggads@gmail.com",
+        "regno": "fwe3223e",
+        "password": "io)((GeU",
+        "course": "mca",
+        "section": "c",
+        "image": "C:\/Users\/amans\/Desktop\/StudentPortal 4\/StudentPortal\/Images\/student\/1.png"
+    },
+    {
+        "name": "yrr",
+        "email": "ggafds@gmail.com",
+        "regno": "ffdes223e",
+        "password": "io)((GeU",
+        "course": "mca",
+        "section": "c",
+        "image": "C:\/Users\/amans\/Desktop\/StudentPortal 4\/StudentPortal\/Images\/student\/scchem.png"
+    },
+    {
+        "name": "sravan",
+        "email": "sravan@gmail.com",
+        "regno": "srag2131",
+        "password": "LfMQi6lz",
+        "course": "mca",
+        "section": "c",
+        "image": "C:\/Users\/amans\/Desktop\/StudentPortal 4\/StudentPortal\/Images\/student\/passport size.jpg"
+    }
+]

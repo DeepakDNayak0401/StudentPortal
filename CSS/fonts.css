@@ -1,0 +1,7 @@
+@import url(../CSS/partials/_variables.css);
+
+@font-face{
+	font-family: var(--roboto);
+	src: url(../Font/Roboto/Roboto-Regular.ttf);
+}
+

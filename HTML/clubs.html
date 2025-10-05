@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extracurricular Forum</title>
+     <!-- ------------favicon------------------ -->
+     <link rel="icon" href="../Images/favicon.jpg" type="image/png">
+
+     <!-- bootstrap css file -->
+     <link type="text/css" rel="stylesheet" href="..\CSS\bootstrap.min.css" />
+
+    <link type="text/css" rel="stylesheet" href="..\CSS\clubs.css">
+
+</head>
+<body>
+
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">EduSphere</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="myButton">Go Back to Dashboard</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2>Welcome to the Extracurricular Forum</h2>
+        <p>Explore various clubs and activities available for students to join and enhance their skills!</p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- Photography Club -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Photography Club</h5>
+                        <p class="card-text">Join us to explore the art of photography.</p>
+                        <p><strong>Coordinator:</strong> John Doe</p>
+                        <button class="btn btn-primary joinButton" data-target="#joinModal">Join Group</button>
+                        <a href="photography.html" class="btn btn-secondary openGroupButton" style="display:none;">Open Group</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sports Club -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Sports Club</h5>
+                        <p class="card-text">Join us to explore various sports activities.</p>
+                        <p><strong>Coordinator:</strong> Alice Johnson</p>
+                        <button class="btn btn-primary joinButton" data-target="#joinModal">Join Group</button>
+                        <a href="sports.html" class="btn btn-secondary openGroupButton" style="display:none;">Open Group</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cultural Club -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Cultural Club</h5>
+                        <p class="card-text">Celebrate and explore different cultures.</p>
+                        <p><strong>Coordinator:</strong> Emma Davis</p>
+                        <button class="btn btn-primary joinButton" data-target="#joinModal">Join Group</button>
+                        <a href="cultural.html" class="btn btn-secondary openGroupButton" style="display:none;">Open Group</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Music Club -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Music Club</h5>
+                        <p class="card-text">Share your love for music and collaborate.</p>
+                        <p><strong>Coordinator:</strong> Emily White</p>
+                        <button class="btn btn-primary joinButton" data-target="#joinModal">Join Group</button>
+                        <a href="music.html" class="btn btn-secondary openGroupButton" style="display:none;">Open Group</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Art Club -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Art Club</h5>
+                        <p class="card-text">Explore your creativity through various art forms.</p>
+                        <p><strong>Coordinator:</strong> Bob Smith</p>
+                        <button class="btn btn-primary joinButton" data-target="#joinModal">Join Group</button>
+                        <a href="art.html" class="btn btn-secondary openGroupButton" style="display:none;">Open Group</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coding Club -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Coding Club</h5>
+                        <p class="card-text">Enhance your programming skills and work on projects together.</p>
+                        <p><strong>Coordinator:</strong> Mark Green</p>
+                        <button class="btn btn-primary joinButton" data-target="#joinModal">Join Group</button>
+                        <a href="coding.html" class="btn btn-secondary openGroupButton" style="display:none;">Open Group</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Join Modal -->
+    <div class="modal fade" id="joinModal" tabindex="-1" aria-labelledby="joinModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header d-flex justify-content-around">
+                    <h5 class="modal-title text-dark " id="joinModalLabel">Join Club</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-dark">
+                    <p>Please read the rules before joining:</p>
+                    <ul>
+                        <li>Attend at least 75% of club meetings.</li>
+                        <li>Participate in club activities and events.</li>
+                        <li>Respect fellow members and their ideas.</li>
+                    </ul>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="agreeRules">
+                        <label class="form-check-label" for="agreeRules">I agree to the rules</label>
+                    </div>
+                    <div id="confirmationMessage" class="mt-3" style="display:none; color:green;">
+                        You will receive a confirmation within 24 hours!
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" disabled id="joinButton">Join</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 EduSphere. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const joinButtons = document.querySelectorAll('.joinButton');
+        const openGroupButtons = document.querySelectorAll('.openGroupButton');
+        
+        joinButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                $('#joinModal').modal('show');
+
+                const joinModal = document.getElementById('joinModal');
+                const joinButton = joinModal.querySelector('#joinButton');
+                const checkbox = joinModal.querySelector('#agreeRules');
+                const confirmationMessage = joinModal.querySelector('#confirmationMessage');
+
+                // Reset modal state
+                confirmationMessage.style.display = 'none';
+                checkbox.checked = false;
+                joinButton.disabled = true;
+
+                checkbox.addEventListener('change', () => {
+                    joinButton.disabled = !checkbox.checked;
+                });
+
+                joinButton.onclick = () => {
+                    confirmationMessage.style.display = 'block';
+                    button.style.display = 'none'; // Hide "Join Group" button
+                    openGroupButtons[index].style.display = 'inline-block'; // Show "Open Group" button
+                    $('#joinModal').modal('hide');
+                };
+            });
+        });
+    </script>
+</body>
+</html>

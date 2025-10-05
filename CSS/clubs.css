@@ -1,0 +1,86 @@
+@import url(./partials/_variables.css);
+
+@import url(../CSS/fonts.css);
+
+:root {
+    --primary-color: #8E2DE2;
+    --secondary-color: #4A00E0;
+    --accent-color: #FF6B6B;
+    --background-color: #F8F9FA;
+    --text-color: #e6d6d6;
+}
+
+body {
+    font-family: var(--roboto), sans-serif;
+    background: #0a090a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+}
+
+.navbar {
+    background-color: var(--nav-background-color);
+    backdrop-filter: blur(10px);
+}
+
+
+.myButton {
+	background:linear-gradient(to bottom, #d4c24c 5%, #ffab23 100%);
+	background-color:#d4c24c;
+	border-radius:14px;
+	border:1px solid #ffab2e;
+	display:inline-block;
+	cursor:pointer;
+	color:#0a090a;
+	font-family:Arial;
+	font-size:16px;
+	padding:12px 27px;
+	text-decoration:none;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #ffab23 5%, #d4c24c 100%);
+	background-color:#ffab23;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.container {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-body {
+    flex: 1;
+    padding: 20px;
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
